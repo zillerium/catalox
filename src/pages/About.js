@@ -14,20 +14,8 @@ const About = () => {
 	  <h1>About Us</h1>
 	  <Row>
 	  <Col>
-                 <p>Doramo is an asset ledger. This site lists assets in the blockchain as a reference point. This is also issued as an NFT.
-</p>
+                 <p>Catalox is a catalog of parts</p>
           </Col>
-	  </Row>
-	  <Row>
-	  <Col></Col>
-	  <Col className="d-flex justify-content-center">
-	  <ReactPlayer url="https://www.youtube.com/watch?v=X30RLvIDbfU" />
-
-	  </Col>
-
-	  <Col></Col>
-
-
 	  </Row>
 
       </div>

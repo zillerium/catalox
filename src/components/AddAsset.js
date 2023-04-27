@@ -15,13 +15,6 @@ import abinft from './abinft';
 
 function AddAsset() {
  const web3 = new Web3();
-	 const  {
-                addAsset, setAddAsset, contractAddress, 
-		assetId, assetValue, assetNumberShares, 
-		 assetIncome, assetYield, assetRiskRating, 
-		 currency, assetNumberSharesSold, sellerAddress
-                } = useContext(ContractContext)
-
 	const {ipfsHash} = useContext(IpfsContext);
         let nftcontractAddress = process.env.REACT_APP_NFT_CONTRACT_ADDR;
 
@@ -43,8 +36,7 @@ console.log("my b32 nuym -== ", ipfsHashBytes32);
   //           new Uint8Array(32), (_, i) => bytes[i] || 0
 //	).map(x=>x.toString(16).padStart(2, "0")).join('');
 
-        let argArr = [ipfsHash, ipfsHashBytes32,  assetValue, assetNumberShares, assetIncome, 
-		assetYield*100, assetRiskRating, currency, assetNumberSharesSold, sellerAddress];
+        let argArr = [ipfsHash, ipfsHashBytes32];
   	    console.log("array ---- ", argArr, nftcontractAddress);
             const {config, error} = usePrepareContractWrite({
                    address: nftcontractAddress,
@@ -82,7 +74,7 @@ console.log("my b32 nuym -== ", ipfsHashBytes32);
 
     return (
         <>
-	    {assetYield}
+	    {nftcontractAddress}
         <div><Button  variant="primary" onClick={addAssetFunc}>Create Asset NFT </Button></div>
             {error && (<div> error in formatting {error.message} </div>)}
         </>
@@ -93,5 +85,4 @@ console.log("my b32 nuym -== ", ipfsHashBytes32);
 
 
 export default AddAsset;
-
 

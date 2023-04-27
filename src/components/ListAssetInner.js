@@ -30,7 +30,7 @@ return (
     <div className="container">
 
        <ContractContext.Provider value={{
-  	    contractNftAddress, assetList, setAssetList, assetDetails, setAssetDetails,
+  	    contractNftAddress, assetList, setAssetList, assetDetails, setAssetDetails
         }}>
         <div>
 	   <div className="row">

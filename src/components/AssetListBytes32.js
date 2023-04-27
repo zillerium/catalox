@@ -105,15 +105,12 @@ console.log("sel asset  ", assetDetails);
         </div>
 
 
-      {selAsset && assetDetails?.assetIncome && JSON.stringify(assetDetails) !== JSON.stringify([{}]) && (
+      {selAsset && JSON.stringify(assetDetails) !== JSON.stringify([{}]) && (
         <div className="col-6"> 
           <h3>Asset Details:  </h3>
           <AssetDetailsTable
             selAsset={selAsset}
             assetDetails={assetDetails}
-            assetValueLocale={assetValueLocale}
-            assetNumberShares={assetNumberShares}
-            assetIncomeLocale={assetIncomeLocale}
           />
         </div>
       )}

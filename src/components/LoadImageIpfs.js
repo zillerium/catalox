@@ -33,7 +33,12 @@ function LoadImageIpfs() {
     });
 
     const imageFile = await productImage.arrayBuffer();
+	  console.log("image file = ", imageFile);
+	  console.log("ipfs = ", ipfs);
+
     const { cid } = await ipfs.add(imageFile, { pin: true });
+	  console.log("cid  = ", cid);
+	  console.log("cid tostring = ", cid.toString());
     setIpfsImageHash(cid.toString());
   };
 

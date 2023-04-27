@@ -4,31 +4,28 @@ import jsPDF from 'jspdf';
 import { ContractContext } from './ContractContext';
 
 function AddPdf() {
-  const {
-    assetId,
-    dbKey,
-    assetOwnerName,
-    assetAddress,
-    assetValue,
-    assetNumberShares,
-    hasTenant,
-    hasGarden,
-    hasParking,
-    assetImageUrl,
-    assetUrl,
-    assetIncome,
-    assetYield,
-    assetNumberBathrooms,
-    assetNumberBedrooms,
-    assetHouseType,
-    hasDoubleGlazing,
-    assetRiskRating,
-    assetPreferredNotary,
-    currency,
-    usdGbpRate,
-    assetNumberSharesSold,
-    sellerAddress,
-  } = useContext(ContractContext);
+  
+  const { erc20ContractAddress, 
+         contractAddress, 
+         contractDetails, 
+         notary, 
+         contractNumber, 
+         image, 
+         firstName, 
+         lastName, 
+         manName, 
+         partNumber, 
+         manPartNumber, 
+         partOption, partDesc, 
+         partShortDesc, 
+         partImgUrl, 
+         partTechImgUrl,
+         partSalePrice, 
+         partManPrice, 
+         currency, 
+         merchantId, 
+         merchantName, 
+         deliveryCharge } = useContext(ContractContext); 
 
 
  
@@ -46,7 +43,7 @@ function generatePDF() {
   const height = pdf.internal.pageSize.getHeight();
 
   pdf.setFontSize(24);
-  pdf.text('FlowSwap Asset Record', width / 2, 40, { align: 'center' });
+  pdf.text('Product', width / 2, 40, { align: 'center' });
 
   // Add image
   if (photo) {
@@ -87,42 +84,35 @@ function generatePDF() {
       };
 
       const printTextMoney = (label, value) => {
-        const formattedValue = value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+	      console.log(" value ==== ", value);
+        const formattedValue = value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         printText(`${label}: ${formattedValue} ${currency}`);
       };
 
       const printTextNumber = (label, value) => {
-        const formattedValue = value.toLocaleString();
+        const formattedValue = value?.toLocaleString();
         printText(`${label}: ${formattedValue}`);
       };
 
-      const printTextBoolean = (label, value) => {
-        const readableValue = value ? 'Yes' : 'No';
-        printText(`${label}: ${readableValue}`);
-      };
-
-      // Add text fields
-      printText(`Asset ID: ${assetId}`);
-      printText(`Owner Name: ${assetOwnerName}`);
-      printText(`Address: ${assetAddress}`);
-      printText(`Preferred Notary: ${assetPreferredNotary}`);
-      printText(`Seller Address: ${sellerAddress}`);
-      printTextBoolean(`Has Double Glazing`, hasDoubleGlazing);
-      printTextBoolean(`Has Tenant`, hasTenant);
-      printTextBoolean(`Has Garden`, hasGarden);
-      printTextBoolean(`Has Parking`, hasParking);
-      printTextNumber(`Number of Bathrooms`, assetNumberBathrooms);
-      printTextNumber(`Number of Bedrooms`, assetNumberBedrooms);
-      printText(`House Type: ${assetHouseType}`);
-      printText(`Image URL: ${assetImageUrl}`);
-      printText(`Asset URL: ${assetUrl}`);
-      printTextMoney(`Value`, assetValue);
-      printTextNumber(`Number of Shares`, assetNumberShares);
-      printTextMoney(`Income`, assetIncome);
-      printText(`Yield: ${assetYield}%`);
-      printText(`Risk Rating: ${assetRiskRating}`);
-      printText(`USD/GBP Rate: ${usdGbpRate}`);
-      printTextNumber(`Number of Shares Sold`, assetNumberSharesSold);
+      
+     console.log("delivery charge ===== ", deliveryCharge); 
+printText(`contractAddress: ${contractAddress}`);
+printText(`Manufacturer Name: ${manName}`);
+printText(`Part Number: ${partNumber}`);
+printText(`Manufacturer Part Number: ${manPartNumber}`);
+printText(`Part Option: ${partOption}`);
+printText(`Part Desc: ${partDesc}`);
+printText(`Part Short Desc: ${partShortDesc}`);
+printText(`Image Url: ${partImgUrl}`);
+printText(`Tech Image Url: ${partTechImgUrl}`);
+printTextMoney(`Sale Price:`, partSalePrice);
+printTextMoney(`Manufacturer Price:`, partManPrice);
+printText(`Currency: ${currency}`);
+printText(`MerchantId: ${merchantId}`);
+printText(`Merchant Name: ${merchantName}`);
+printTextMoney(`Delivery Charge:`, deliveryCharge);
+      
+      
 
       pdf.save('imagepdf.pdf');
     };
@@ -138,7 +128,7 @@ function generatePDF() {
 	  <img src='http://ipfs.io/ipfs/QmSj5Yd6p377rYJWSoGnq29wehFFKkLZGS7PynxKzaLQSB' className="img-fluid" alt="menu"/>
       </div>
       <div ref={screenshotRef}>
-        <img src={assetImageUrl} alt="Asset Image" className="img-fluid" />
+        <img src={partImgUrl} alt="Asset Image" className="img-fluid" />
       </div>
 	            <div><h2>Create PDF Locally</h2> </div>
 

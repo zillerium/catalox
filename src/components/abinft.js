@@ -109,46 +109,6 @@ const abinft=[
 				"internalType": "bytes32",
 				"name": "_ipfsAddr",
 				"type": "bytes32"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_assetValue",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_assetNumberShares",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_assetIncome",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_assetYield",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_assetRiskRating",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_currency",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_assetNumberSharesSold",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_assetOwner",
-				"type": "address"
 			}
 		],
 		"name": "safeMint",
@@ -415,46 +375,6 @@ const abinft=[
 				"type": "uint256"
 			},
 			{
-				"internalType": "uint256",
-				"name": "assetValue",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetNumberShares",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetIncome",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetYield",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetRiskRating",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "currency",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetNumberSharesSold",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "assetOwner",
-				"type": "address"
-			},
-			{
 				"internalType": "bytes32",
 				"name": "assetIpfsAddr",
 				"type": "bytes32"
@@ -527,46 +447,6 @@ const abinft=[
 				"internalType": "uint256",
 				"name": "assetNft",
 				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetValue",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetNumberShares",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetIncome",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetYield",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetRiskRating",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "currency",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "assetNumberSharesSold",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "assetOwner",
-				"type": "address"
 			},
 			{
 				"internalType": "bytes32",

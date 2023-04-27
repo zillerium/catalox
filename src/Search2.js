@@ -4,7 +4,7 @@ import {Link, Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {CartContext} from './CartContext';
 import {Table, Card, Button, Form, Row, Col} from 'react-bootstrap';
-import {ProductPage} from './pages/ProductPage';
+import {AssetShowPage} from './pages/AssetShowPage';
 import {ArrowRight,Search} from 'react-bootstrap-icons';
 
 // import {productsArray} from '../productsStore';
@@ -19,7 +19,8 @@ const Search1 =  () => {
        const cart=useContext(CartContext);
 
        const searchDB = async (searchVal) => {
-          const baseUrl = "https://peacioapi.com:3000/searchDB/"+searchVal; 
+          //const baseUrl = "https://peacioapi.com:3000/searchHouseDB/"+searchVal;
+	  const baseUrl = process.env.REACT_APP_SERVER_URL + "/searchDB/" + searchVal;
           let res = await axios.get(baseUrl);
 	       console.log("res");
 	       console.log(res.data);
@@ -42,24 +43,29 @@ const Search1 =  () => {
 					<Table stripod="true"  bordered hover>
                                             <thead>
                                                  <tr>
-                                                      <th>Brand</th>
-                                                      <th>Part Number</th>
+                                                      <th>Asset ID</th>
+                                                      <th>Asset Address</th>
+                                                      <th>Valuation</th>
                                                       <th>Details</th>
-                                                      <th>Price</th>
+                                                      <th>Shares</th>
+                                                      <th>Income</th>
 					         </tr>
 					    </thead>
 	                        	<tbody>
                         {searchedData.length>0 && searchedData.map((value, key) => {
                                 return (
 					<tr>
-                                 <td>    {value.manName}  </td>
-                                 <td>    {value.partDesc}  </td>
+                                 <td>    {value.assetId}  </td>
+                                 <td>    {value.assetAddress}  </td>
+                                 <td>    {value.assetValue.toLocaleString()} {value.currency} </td>
 					                     <td>            <Link to={{
-                                             pathname:`/product/${value.dbKey}`,
+                                             pathname:`/asset/${value.ipfsHash}`,
                                                            state:{productId: value.dbKey, productPrice: value.partSalePrice}
-                                                           }}>{value.partNumber}</Link>
+                                                           }}>{value.assetAddress}</Link>
                                                            </td>
-                                 <td>    {value.partSalePrice?.toFixed(2)} {value.currency} </td>
+                                 <td>    {value.assetNumberShares.toLocaleString()}  </td>
+					<td> {value.assetIncome.toLocaleString()} {value.currency}
+						</td>
 					</tr>
 				)
 			})}
